@@ -1,0 +1,14 @@
+name: Update WinGet Packages
+on: workflow_dispatch
+jobs:
+  update:
+    name: Update Package
+    runs-on: ubuntu-latest
+    steps:
+    - name: Update Packages
+      uses: michidk/winget-updater@latest
+      with:
+        komac-token: ${{ secrets.KOMAC_TOKEN }}
+        identifier: "HydrusNetwork.HydrusNetwork"
+        repo: "hydrusnetwork/hydrus"
+        URL: "https://github.com/hydrusnetwork/hydrus/releases/download/v{VERSION}/Hydrus.Network.{VERSION}.-.Windows.-.Installer.exe"
